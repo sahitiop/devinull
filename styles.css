@@ -13,3 +13,59 @@
 .cursor-core { pointer-events:none; position:fixed; z-index:30; top:0;left:0;width:7px;height:7px;border-radius:50%;background:var(--acid);mix-blend-mode:screen;transform:translate(-50%,-50%);box-shadow:0 0 14px var(--acid); } .cursor-trail { pointer-events:none; position:fixed; z-index:29; top:0;left:0;width:26px;height:26px;border:1px solid rgba(200,255,84,.65);border-radius:50%;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,background .25s; }
 .github-projects { margin-top:18px; padding:clamp(25px,4vw,58px); border:1px solid rgba(166,238,223,.16); background:linear-gradient(125deg,rgba(17,40,40,.56),rgba(6,14,16,.88)); }.github-projects-head { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; }.github-projects h2 { margin:0; font:500 clamp(38px,5.4vw,76px)/.78 var(--display); letter-spacing:-.075em; }.github-actions { width:min(100%,370px); }.github-actions p { margin:0 0 20px; color:var(--muted); font-size:11px; line-height:1.7; }.github-actions p a { color:var(--acid); }.github-load { position:relative; overflow:hidden; width:100%; padding:14px 16px; border:1px solid rgba(200,255,84,.75); color:var(--acid); background:transparent; cursor:pointer; text-align:left; font:500 10px var(--mono); letter-spacing:.12em; }.github-load:before { content:""; position:absolute; inset:0; z-index:-1; transform:translateX(-102%); background:var(--acid); transition:transform .32s cubic-bezier(.2,.8,.2,1); }.github-load:hover,.github-load:focus-visible { color:var(--ink); }.github-load:hover:before,.github-load:focus-visible:before { transform:none; }.button-icon { display:inline-block; margin-right:9px; font-size:16px; vertical-align:-2px; }.github-project-status { margin-top:45px; padding-top:14px; border-top:1px solid rgba(196,244,232,.12); color:#748a83; font:9px var(--mono); letter-spacing:.1em; }.github-project-status span { color:var(--acid); padding:0 6px; }.github-project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px; }.github-project-card { min-height:208px; padding:18px; display:flex; flex-direction:column; border:1px solid rgba(181,243,227,.13); background:rgba(5,12,14,.52); transition:transform .35s,border-color .35s,background .35s; }.github-project-card:hover { transform:translateY(-8px); border-color:rgba(92,229,255,.6); background:rgba(16,49,52,.48); }.github-repo-meta { display:flex; justify-content:space-between; color:#83a19a; font:9px var(--mono); letter-spacing:.08em; }.github-project-card h3 { margin:26px 0 8px; font:500 25px/.92 var(--display); letter-spacing:-.055em; overflow-wrap:anywhere; }.github-project-card p { display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:3; margin:0; color:var(--muted); font-size:11px; line-height:1.55; }.repo-bottom { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:auto; padding-top:15px; color:var(--cyan); font:9px var(--mono); letter-spacing:.08em; }.repo-bottom a { color:var(--acid); font-size:17px; transition:transform .25s; }.github-project-card:hover .repo-bottom a { transform:translate(3px,-3px); }.github-project-empty { grid-column:1/-1; padding:24px 0 4px; color:var(--muted); font:11px var(--mono); }
 @media (max-width:760px){.github-projects{padding:25px 18px}.github-projects-head{display:block}.github-actions{width:100%;margin-top:34px}.github-project-grid{grid-template-columns:1fr}.cursor-core,.cursor-trail{display:none}}
+
+/* Navigation, live feeds, and keyboard access */
+.menu-toggle { display:none; padding:9px 11px; border:1px solid var(--line); background:transparent; color:var(--acid); cursor:pointer; font:500 9px var(--mono); letter-spacing:.12em; }
+.menu-toggle span { margin-left:5px; font-size:14px; }
+.site-header a:focus-visible,.site-header button:focus-visible,.contact-link:focus-visible,.repo-bottom a:focus-visible,.news-item a:focus-visible,.vuln-item a:focus-visible,.intel-refresh:focus-visible,.github-load:focus-visible { outline:2px solid var(--cyan); outline-offset:4px; }
+.intel-top-actions { display:flex; align-items:center; gap:22px; }
+.intel-refresh { padding:8px 11px; border:1px solid rgba(200,255,84,.42); background:transparent; color:var(--acid); cursor:pointer; font:500 9px var(--mono); letter-spacing:.1em; transition:background .2s,color .2s,border-color .2s; }
+.intel-refresh:hover:not(:disabled) { background:var(--acid); border-color:var(--acid); color:var(--ink); }
+.intel-refresh:disabled,.github-load:disabled { cursor:wait; opacity:.65; }
+.intel-grid { grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); }
+.feed-card,.news-card { grid-column:auto; min-height:350px; }
+.feed-card .vulnerability-feed { grid-template-columns:1fr; gap:8px; }
+.feed-card .vuln-item { position:relative; min-height:76px; padding:12px 92px 12px 14px; }
+.vuln-item strong a { color:inherit; text-decoration:none; }
+.vuln-item strong a:hover,.news-item a:hover { color:var(--cyan); }
+.vuln-item p { margin-top:7px; }
+.vuln-item span { position:absolute; top:14px; right:13px; margin:0; }
+.news-card .feed-note { position:static; margin:16px 0 0; line-height:1.6; }
+.feed-note a { color:var(--cyan); }
+.news-feed { position:relative; z-index:2; display:grid; gap:12px; margin-top:22px; }
+.news-item { padding-bottom:12px; border-bottom:1px solid rgba(194,245,233,.1); }
+.news-item:last-child { border-bottom:0; padding-bottom:0; }
+.news-meta { display:flex; justify-content:space-between; color:#86a39c; font:8px var(--mono); letter-spacing:.1em; }
+.news-item h3 { margin:8px 0 5px; color:#e2f5ef; font:500 13px/1.35 var(--display); }
+.news-item h3 a { transition:color .2s; }
+.news-item h3 a span { color:var(--acid); font-size:11px; }
+.news-item p { display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; margin:0; color:var(--muted); font-size:10px; line-height:1.5; }
+.feed-empty { margin:20px 0; color:var(--muted); font:10px/1.6 var(--mono); }
+::selection { color:var(--ink); background:var(--acid); }
+
+@media (max-width:760px) {
+  .menu-toggle { display:block; }
+  .site-header nav.is-open { position:absolute; top:66px; left:20px; right:20px; z-index:12; display:flex; flex-direction:column; gap:0; padding:6px 16px; border:1px solid var(--line); background:rgba(8,18,20,.98); box-shadow:0 18px 38px rgba(0,0,0,.35); }
+  .site-header nav.is-open a { padding:14px 0; border-bottom:1px solid rgba(203,250,239,.1); }
+  .site-header nav.is-open a:last-child { border-bottom:0; }
+  .intel-top-actions { align-items:flex-end; flex-direction:column; gap:12px; }
+  .intel-grid { grid-template-columns:1fr; }
+  .feed-card,.news-card { grid-column:1; min-height:0; }
+  .feed-card { min-height:390px; }
+  .news-card { min-height:390px; }
+  .feed-card .vulnerability-feed { gap:7px; }
+  .feed-card .vuln-item { min-height:75px; }
+  .news-card .feed-note { margin-top:15px; }
+}
+
+@media (max-width:380px) {
+  .site-header { padding-left:14px; padding-right:14px; }
+  .brand { gap:7px; font-size:10px; }
+  .header-contact { font-size:8px; }
+  .section-shell { padding-left:18px; padding-right:18px; }
+  .intel-top { align-items:flex-start; }
+}
+
+@media (pointer:coarse), (prefers-reduced-motion:reduce) {
+  .cursor-core,.cursor-trail { display:none; }
+}

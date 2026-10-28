@@ -22,18 +22,19 @@
       <a class="brand" href="#top" aria-label="DeviNull home">
         <span class="brand-mark">D/</span><span>DEVINULL</span>
       </a>
-      <nav aria-label="Primary navigation">
+      <nav id="primaryNav" aria-label="Primary navigation">
         <a href="#about">Profile</a>
         <a href="#work">Projects</a>
         <a href="#intel">Intel</a>
       </nav>
+      <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav">MENU <span aria-hidden="true">+</span></button>
       <a class="header-contact" href="#contact">Initiate contact <span>↗</span></a>
     </header>
 
     <main id="top">
       <section class="hero section-shell" aria-labelledby="hero-title">
         <div class="hero-meta reveal">
-          <span class="status-dot"></span> SYSTEM ONLINE <span class="meta-divider">/</span> EST. 2026
+          <span class="status-dot"></span> BUILDING IN PUBLIC <span class="meta-divider">/</span> DEVINULL
         </div>
         <div class="hero-copy">
           <p class="eyebrow reveal">CYBERSECURITY STUDENT · ASPIRING ENGINEER</p>
@@ -42,7 +43,7 @@
             <span class="reveal line-two">UNKNOWN<span class="title-dot">.</span></span>
           </h1>
           <div class="hero-bottom reveal">
-            <p>Kanumuri Sridevi Thrivedya Sahiti is building practical security projects at the intersection of systems, the web, and human curiosity.</p>
+            <p>I’m Kanumuri Sridevi Thrivedya Sahiti — a cybersecurity student turning curiosity about systems and the web into practical security projects.</p>
             <a class="round-link" href="#work" aria-label="Explore selected work">↓</a>
           </div>
         </div>
@@ -59,7 +60,7 @@
         <div class="manifesto-content">
           <p class="display-copy reveal">I turn <em>curiosity</em> into security engineering — investigating how systems behave, where they fail, and how to make them stronger.</p>
           <div class="profile-grid">
-            <p class="reveal">I’m a cybersecurity student exploring offensive and defensive security through hands-on projects. My goal is simple: become the engineer people trust with the hard problems.</p>
+            <p class="reveal">I’m learning cybersecurity by building, investigating, and documenting. I’m especially interested in web security, network defense, and the small engineering decisions that make systems safer.</p>
             <div class="profile-tags reveal" aria-label="Areas of interest">
               <span>WEB SECURITY</span><span>NETWORK DEFENSE</span><span>THREAT INTEL</span><span>SECURE SYSTEMS</span>
             </div>
@@ -68,49 +69,43 @@
       </section>
 
       <section id="work" class="work section-shell">
-        <div class="section-heading reveal"><div class="section-index">02 <span>— SELECTED WORK</span></div><p>Projects in progress. Built to learn in public, securely.</p></div>
-        <div class="project-list">
-          <article class="project-card reveal project-card-main">
-            <div class="project-visual vuln-visual"><span class="visual-grid"></span><span class="scan-line"></span><span class="vuln-code">CVE<br/>HUNT</span><i></i><i></i><i></i></div>
-            <div class="project-details"><p class="project-number">01 / RESEARCH</p><h2>Vulnerability<br />Research Lab</h2><p class="project-description">A growing workspace for analysing public vulnerabilities, exploit patterns, and practical mitigations.</p><div class="project-footer"><span>RESEARCH · WEB SECURITY</span><button type="button" class="project-open" aria-label="Project details coming soon">↗</button></div></div>
-          </article>
-          <article class="project-card reveal project-card-small">
-            <div class="project-visual net-visual"><span></span><span></span><span></span><span></span><b>NET//SENTRY</b></div>
-            <div class="project-details"><p class="project-number">02 / ENGINEERING</p><h2>Network<br />Sentry</h2><p class="project-description">A defensive monitoring concept for detecting unusual network activity.</p><div class="project-footer"><span>NETWORK DEFENSE</span><button type="button" class="project-open" aria-label="Project details coming soon">↗</button></div></div>
-          </article>
-        </div>
         <section class="github-projects reveal" aria-labelledby="github-projects-title">
           <div class="github-projects-head">
-            <div><p class="project-number">03 / GITHUB SYNC</p><h2 id="github-projects-title">Project<br /><em>Stream.</em></h2></div>
-            <div class="github-actions"><p>Load public repositories directly from <a href="https://github.com/sahitiop" target="_blank" rel="noreferrer">github.com/sahitiop ↗</a></p><button id="loadGithubProjects" class="github-load" type="button"><span class="button-icon">+</span> LOAD REPOSITORIES</button></div>
+            <div><p class="project-number">02 / OPEN SOURCE</p><h2 id="github-projects-title">Work in<br /><em>progress.</em></h2></div>
+            <div class="github-actions"><p>Public repositories sync from <a href="https://github.com/sahitiop" target="_blank" rel="noopener noreferrer">github.com/sahitiop ↗</a> when this page opens.</p><button id="loadGithubProjects" class="github-load" type="button"><span class="button-icon">↻</span> REFRESH REPOSITORIES</button></div>
           </div>
-          <div id="githubProjectStatus" class="github-project-status">READY TO SYNCHRONISE <span>•</span> PUBLIC REPOSITORIES ONLY</div>
-          <div id="githubProjectGrid" class="github-project-grid" aria-live="polite"></div>
+          <div id="githubProjectStatus" class="github-project-status" role="status" aria-live="polite">CONNECTING TO GITHUB <span>•</span> PUBLIC REPOSITORIES ONLY</div>
+          <div id="githubProjectGrid" class="github-project-grid" aria-live="polite"><p class="github-project-empty">Loading public repositories…</p></div>
         </section>
       </section>
 
       <section id="intel" class="intel section-shell" aria-labelledby="intel-title">
-        <div class="intel-top reveal"><div class="section-index">03 <span>— LIVE INTELLIGENCE</span></div><div class="live-state"><span class="status-dot"></span> DATA FEED ACTIVE</div></div>
-        <div class="intel-title-wrap reveal"><h2 id="intel-title">SIGNAL<br /><em>FIELD.</em></h2><p>Public threat intelligence, rendered as a living operational view. Verify sources before acting.</p></div>
+        <div class="intel-top reveal"><div class="section-index">03 <span>— SECURITY SIGNALS</span></div><div class="intel-top-actions"><div class="live-state"><span class="status-dot"></span> PUBLIC DATA · FETCHED ON VISIT</div><button id="refreshIntel" class="intel-refresh" type="button">SYNC FEEDS ↻</button></div></div>
+        <div class="intel-title-wrap reveal"><h2 id="intel-title">SIGNAL<br /><em>FIELD.</em></h2><p>Recent EPSS risk estimates and cybersecurity community briefings. The map is illustrative, not a live attack tracker.</p></div>
         <div class="intel-grid">
           <article class="intel-card map-card reveal">
-            <div class="card-label"><span>GLOBAL RISK FIELD</span><span id="map-clock">UTC --:--:--</span></div>
+            <div class="card-label"><span>ILLUSTRATIVE SIGNAL MAP</span><span id="map-clock">UTC --:--:--</span></div>
             <canvas id="threatMap" role="img" aria-label="Animated illustrative global threat signal map"></canvas>
-            <div class="map-legend"><span><i class="legend-dot amber"></i> ELEVATED</span><span><i class="legend-dot cyan"></i> WATCHED</span><span>ILLUSTRATIVE REGIONAL SIGNALS</span></div>
+            <div class="map-legend"><span><i class="legend-dot amber"></i> SIGNAL NODE</span><span><i class="legend-dot cyan"></i> ROUTE</span><span>ILLUSTRATIVE · NOT LIVE LOCATIONS</span></div>
           </article>
           <article class="intel-card metrics-card reveal">
-            <div class="card-label"><span>RISK TELEMETRY</span><span>LAST 24H</span></div>
+            <div class="card-label"><span>EPSS SNAPSHOT</span><span id="epssDate">WAITING</span></div>
             <div class="metric-stack">
-              <div class="metric"><span>CRITICAL EXPOSURE</span><strong id="criticalMetric">--</strong><em>EPSS SIGNAL</em></div>
-              <div class="metric"><span>ACTIVE WATCHLIST</span><strong id="watchMetric">--</strong><em>PUBLIC CVEs</em></div>
-              <div class="metric"><span>FEED LATENCY</span><strong id="latencyMetric">LIVE</strong><em>PUBLIC API</em></div>
+              <div class="metric"><span>HIGHEST SCORE</span><strong id="epssMetric">--</strong><em>ESTIMATED EXPLOIT LIKELIHOOD</em></div>
+              <div class="metric"><span>CVES DISPLAYED</span><strong id="cveMetric">--</strong><em>PUBLIC EPSS RECORDS</em></div>
+              <div class="metric"><span>DATA SOURCE</span><strong class="metric-word">FIRST</strong><em>EXPLOIT PREDICTION SCORING SYSTEM</em></div>
             </div>
             <div class="radar" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
           </article>
           <article class="intel-card feed-card reveal">
-            <div class="card-label"><span>VULNERABILITY WATCH</span><span id="feedStatus">CONNECTING</span></div>
+            <div class="card-label"><span>HIGH EPSS SIGNALS</span><span id="feedStatus" role="status" aria-live="polite">CONNECTING</span></div>
             <div id="vulnerabilityFeed" class="vulnerability-feed" aria-live="polite"></div>
-            <p class="feed-note">Data: FIRST EPSS public API. Scores estimate exploitation likelihood; they are not active-attack confirmations.</p>
+            <p class="feed-note">FIRST EPSS estimates exploitation likelihood; it does not confirm active attacks. <a href="https://api.first.org/epss/" target="_blank" rel="noopener noreferrer">Source ↗</a></p>
+          </article>
+          <article class="intel-card news-card reveal">
+            <div class="card-label"><span>FIELD BRIEFING</span><span id="newsStatus" role="status" aria-live="polite">CONNECTING</span></div>
+            <div id="securityNews" class="news-feed" aria-live="polite"><p class="feed-empty">Retrieving public security briefings…</p></div>
+            <p class="feed-note">Recent items from the Forum of Incident Response and Security Teams. <a href="https://www.first.org/newsroom/" target="_blank" rel="noopener noreferrer">FIRST newsroom ↗</a></p>
           </article>
         </div>
       </section>
@@ -118,16 +113,16 @@
       <section class="capabilities section-shell">
         <div class="section-index reveal">04 <span>— CURRENT FOCUS</span></div>
         <div class="capability-list">
-          <div class="capability reveal"><span>01</span><h3>Discover</h3><p>Learn systems deeply. Ask the uncomfortable “what if?” questions.</p></div>
-          <div class="capability reveal"><span>02</span><h3>Defend</h3><p>Translate security concepts into practical, usable safeguards.</p></div>
-          <div class="capability reveal"><span>03</span><h3>Document</h3><p>Share findings clearly, responsibly, and with evidence.</p></div>
+          <div class="capability reveal"><span>01</span><h3>Investigate</h3><p>Understand how systems behave and where risk can enter.</p></div>
+          <div class="capability reveal"><span>02</span><h3>Build</h3><p>Turn security ideas into practical tools and experiments.</p></div>
+          <div class="capability reveal"><span>03</span><h3>Share</h3><p>Document what I learn with care, clarity, and evidence.</p></div>
         </div>
       </section>
 
       <section id="contact" class="contact section-shell">
         <p class="eyebrow reveal">OPEN TO LEARNING · COLLABORATION · OPPORTUNITIES</p>
         <h2 class="contact-title reveal">LET’S BUILD<br/>A SAFER <em>WEB.</em></h2>
-        <div class="contact-bottom reveal"><p>Have a project, a question, or a security idea worth exploring?</p><a class="contact-link" href="mailto:hello@example.com">START A CONVERSATION <span>↗</span></a></div>
+        <div class="contact-bottom reveal"><p>Have a project, a question, or a security idea worth exploring?</p><a class="contact-link" href="https://github.com/sahitiop" target="_blank" rel="noopener noreferrer">CONNECT ON GITHUB <span>↗</span></a></div>
       </section>
     </main>
     <footer><span>© 2026 DEVINULL</span><span>BUILT WITH CURIOSITY &amp; INTENT</span><a href="#top">BACK TO TOP ↑</a></footer>
